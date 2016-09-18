@@ -1,0 +1,67 @@
+//
+// Variables
+// --------------------------------------------------
+
+
+// Type
+// --------------------------------------------------
+$font-family-default: "Helvetica Neue", Helvetica, "Microsoft YaHei",STHeiTi, sans-serif !default;
+$font-size-default: 16px !default;
+$font-weight: 500 !default;
+$font-weight-light: 400 !default;
+$line-height-default: 21px !default;
+
+
+// Colors
+// --------------------------------------------------
+
+// Main theme colors
+$primary-color: #E65749 !default;
+$chrome-color:  #fff !default;
+
+// Action colors
+$default-color:  #fff !default;
+$positive-color: #5cb85c !default;
+$negative-color: #E65749 !default;
+$negative-bottom-color: #BB392F;
+
+// Bars
+// --------------------------------------------------
+
+$bar-base-height:  44px !default;
+$bar-tab-height:   50px !default;
+$bar-side-spacing: 10px !default;
+$bar-nav-background: #fcfcfc;
+$bar-nav-color: #444;
+$bar-nav-shadow: 0px 1px 2px #ddd;
+
+// Cards
+// --------------------------------------------------
+
+$card-bg: #fff !default;
+
+
+// Buttons
+// --------------------------------------------------
+
+$button-font-size: 12px !default;
+
+
+// Transitions
+// --------------------------------------------------
+
+$timing-fuction: cubic-bezier(.1,.5,.1,1) !default; // Inspired by $c2prods
+
+
+// Borders
+// --------------------------------------------------
+
+$border-default: 1px solid #BEBEBE !default;
+$border-radius: 6px !default;
+
+
+// icon fixed:--icon-font-instead
+// page
+// --------------------------------------------------
+$back-page-percent: translate3d(-20%, 0, 0);
+$front-page-percent: translate3d(99%, 0, 0);

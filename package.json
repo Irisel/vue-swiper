@@ -1,0 +1,48 @@
+{
+  "name": "vuejs-spa",
+  "version": "1.0.0",
+  "description": "my demo of vuejs for spc method",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vuejs"
+  ],
+  "author": "likd-a",
+  "license": "ISC",
+  "devDependencies": {
+    "art-template": "^3.0.3",
+    "babel-core": "^5.8.33",
+    "babel-loader": "^5.3.3",
+    "babel-runtime": "^5.8.29",
+    "css-loader": "^0.23.1",
+    "es6-promise": "^3.0.2",
+    "eslint": "^1.3.1",
+    "express": "^4.14.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-sass": "^1.2.0",
+    "grunt-tmod": "^0.2.0",
+    "grunt-webpack": "^1.0.11",
+    "http": "0.0.0",
+    "iscroll": "^5.2.0",
+    "isomorphic-fetch": "^2.2.1",
+    "load-grunt-tasks": "^3.5.0",
+    "redux": "^3.0.4",
+    "redux-thunk": "^1.0.0",
+    "style-loader": "^0.13.0",
+    "time-grunt": "^1.4.0",
+    "vue": "^1.0.14",
+    "vue-hot-reload-api": "^1.2.1",
+    "vue-html-loader": "^1.0.0",
+    "vue-loader": "^6.0.3",
+    "vue-router": "^0.7.13",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "zepto": "^1.2.0",
+    "zepto-modules": "0.0.0"
+  }
+}
