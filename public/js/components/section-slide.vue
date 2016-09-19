@@ -1,14 +1,14 @@
 <template>
-    <section class="swiper-slide">
+    <section class="swiper-slide" :style="[slide.style]">
         <div class="container">
-            slide{{ number }}
+          <img v-bind:src="img.src" :class="[img.class]" :style="[img.style]" :swiper-animate-effect="img.effect" :swiper-animate-duration="img.duration" :swiper-animate-delay="img.delay"  v-for="img in slide.imgs">
         </div>
     </section>
 </template>
 <script>
 export default {
   props: {
-      number: 'Number'
+      slide: 'Object'
   },
   data: function(){
     return {

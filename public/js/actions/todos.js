@@ -1,24 +1,8 @@
-const CHANGE_SEARCH = 'CHANGE_SEARCH'
-
 const FETCH_API = {
-     'HOTEL_LIST': {
-        url: '/list',
-        method: 'get'
-     },
-     'HOTEL_DETAIL':{
-       url: '/detail',
-       method: 'get'
-     }
+
 };
 
 import fetch from 'isomorphic-fetch'
-
-export function changeSearch (text) {
-  return {
-    type: CHANGE_SEARCH,
-    text
-  }
-}
 
 
 function requestPosts(action, method) {
@@ -60,18 +44,6 @@ function urlLink(url, action, method, params) {
     url,
     method,
     action
-  }
-}
-
-export function clear_hotels(){
-  return {
-    type: 'CLEAR_HOTELS'
-  }
-}
-
-export function empty_hotels(){
-  return {
-    type: 'EMPTY_HOTELS'
   }
 }
 
@@ -141,42 +113,3 @@ export function plu_hide(name){
   }
 }
 
-export function hotel_params_update(val, type){
-  return {
-    type: 'HOTEL_PARAMS_UPDATE',
-    val,
-    param: type
-  }
-}
-
-function hotelId_update(hotelId){
-  return {
-    type: 'HOTELID_UPDATE',
-    hotelId
-  }
-}
-
-function hotelDetail_update(detail){
-  return {
-    type: 'HOTELDETAIL_UPDATE',
-    detail
-  }
-}
-
-export function detail_update(hotelId){
-  var link = FETCH_API['HOTEL_DETAIL'];
-
-  return dispatch => {
-    dispatch(hotelId_update(hotelId));
-    dispatch(loading_cover());
-    return fetch(link.url, { method: link.method })
-      .then(response => response.json())
-      .then(function(json){
-        dispatch(hotelDetail_update(json));
-        dispatch(clear_mask());
-      })
-      .catch(function(error){
-        // dispatch(clear_mask());
-      })
-  }
-}

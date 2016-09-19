@@ -1,3 +1,179 @@
 /*TMODJS:{"version":"1.0.0"}*/
-!function(){function a(a,b){return(/string|function/.test(typeof b)?h:g)(a,b)}function b(a,c){return"string"!=typeof a&&(c=typeof a,"number"===c?a+="":a="function"===c?b(a.call(a)):""),a}function c(a){return l[a]}function d(a){return b(a).replace(/&(?![\w#]+;)|[<>"']/g,c)}function e(a,b){if(m(a))for(var c=0,d=a.length;d>c;c++)b.call(a,a[c],c,a);else for(c in a)b.call(a,a[c],c)}function f(a,b){var c=/(\/)[^\/]+\1\.\.\1/,d=("./"+a).replace(/[^\/]+$/,""),e=d+b;for(e=e.replace(/\/\.\//g,"/");e.match(c);)e=e.replace(c,"/");return e}function g(b,c){var d=a.get(b)||i({filename:b,name:"Render Error",message:"Template not found"});return c?d(c):d}function h(a,b){if("string"==typeof b){var c=b;b=function(){return new k(c)}}var d=j[a]=function(c){try{return new b(c,a)+""}catch(d){return i(d)()}};return d.prototype=b.prototype=n,d.toString=function(){return b+""},d}function i(a){var b="{Template Error}",c=a.stack||"";if(c)c=c.split("\n").slice(0,2).join("\n");else for(var d in a)c+="<"+d+">\n"+a[d]+"\n\n";return function(){return"object"==typeof console&&console.error(b+"\n\n"+c),b}}var j=a.cache={},k=this.String,l={"<":"&#60;",">":"&#62;",'"':"&#34;","'":"&#39;","&":"&#38;"},m=Array.isArray||function(a){return"[object Array]"==={}.toString.call(a)},n=a.utils={$helpers:{},$include:function(a,b,c){return a=f(c,a),g(a,b)},$string:b,$escape:d,$each:e},o=a.helpers=n.$helpers;a.get=function(a){return j[a.replace(/^\.\//,"")]},a.helper=function(a,b){o[a]=b},"function"==typeof define?define(function(){return a}):"undefined"!=typeof exports?module.exports=a:this.template=a,/*v:1*/
-a("index",'<div class="pages"> <div class="page-content page-search"> <span class="logo"></span> <div class="swiper-container"> <div class="swiper-wrapper"> <div class="swiper-slide" style="background:url(http://promotion.elong.com/wireless/uploadImages/images/143677867713104.png) no-repeat center;background-size: cover;"></div> <div class="swiper-slide" style="background:url(http://promotion.elong.com/wireless/uploadImages/images/143677871421642.png) no-repeat center;background-size: cover;display: none"></div> <div class="swiper-slide" style="background:url(http://promotion.elong.com/wireless/uploadImages/images/143677875825428.png) no-repeat center;background-size: cover;display: none"></div> <div class="swiper-slide" style="background:url(http://promotion.elong.com/wireless/uploadImages/images/143677879125015.png) no-repeat center;background-size: cover;display: none"></div> </div>  <div class="swiper-pagination"></div> </div> <div class="search-wrap"> <div class="search-lb"> <ul class="search-list"> <li class="addr"> <i class="addr"></i> <p>\u5317\u4eac\u5e02</p> <i class="icon-left"></i> <b class="right"><i class="icon-nearby"></i><span>\u9644\u8fd1</span></b> </li> <li class="date"> <i class="icon-time"></i> <div class="d1"><p class="type">\u5165\u4f4f</p><p><span>07\u670815\u65e5</span>\u4eca\u5929</p></div> <div class="d2"></div> <div class="d3"><p class="type">\u79bb\u5e97</p><p><span>07\u670824\u65e5</span>\u5468\u65e5</p></div> <div class="d4">10\u5929</div> <i class="icon-left"></i> </li> <li class="name"> <i class="name"></i> <input type="input" placeholder="\u9152\u5e97\u540d\u79f0/\u4f4d\u7f6e\u4e0d\u9650" readonly="readonly" value=""> <p style="display:none;"></p> <i class="icon-left"></i><span class="close"><i class="icon-cross"></i></span> </li> <li class="pri on"> <i class="pri"></i> <input type="input" placeholder="\u9152\u5e97\u540d\u79f0/\u4f4d\u7f6e\u4e0d\u9650" readonly="readonly" value=""> <i class="icon-left"></i><span class="close"><i class="icon-cross"></i></span> </li> </ul> <div class="search-btn"><i></i>\u641c\u7d22</div> </div> </div> <div class="search-nav"> <hreflist :hrefs = "hrefs"></hreflist> </div> <div class="search-tool"> <div class="search-tool-tit"><i class="search-tool-i3"></i>\u6211\u7684</div> <ul class="search-tool-list"> <li><a href=""><i class="search-tool-i1"></i>\u8d26\u6237</a></li> <li><a href=""><i class="search-tool-i2"></i>\u8ba2\u5355</a></li> <li><a href=""><i class="search-tool-i3"></i>\u7535\u8bdd</a></li> </ul> </div> <div class="search-city"> <div class="search-city-title"> <p>\u70ed\u95e8\u57ce\u5e02</p> </div> <ul class="search-city-list"> <li class="city1"> <a> <h2>\u5317\u4eac</h2> <p>\u5171\u6709<span>500</span>\u5bb6\u949f\u70b9\u623f</p> <i class="icon-left"></i> </a> </li> <li class="city2"> <a> <h2>\u4e0a\u6d77</h2> <p>\u5171\u6709<span>677</span>\u5bb6\u949f\u70b9\u623f</p> <i class="icon-left"></i> </a> </li> <li class="city3"> <a> <h2>\u5e7f\u5dde</h2> <p>\u5171\u6709<span>370</span>\u5bb6\u949f\u70b9\u623f</p> <i class="icon-left"></i> </a> </li> <li class="city4"> <a> <h2>\u6df1\u5733</h2> <p>\u5171\u6709<span>429</span>\u5bb6\u949f\u70b9\u623f</p> <i class="icon-left"></i> </a> </li> <li class="city5"> <a> <h2>\u6b66\u6c49</h2> <p>\u5171\u6709<span>750</span>\u5bb6\u949f\u70b9\u623f</p> <i class="icon-left"></i> </a> </li> <li class="city6"> <a> <h2>\u957f\u6c99</h2> <p>\u5171\u6709<span>684</span>\u5bb6\u949f\u70b9\u623f</p> <i class="icon-left"></i> </a> </li> <li class="city7"> <a> <h2>\u4e0a\u6d77</h2> <p>\u5171\u6709<span>677</span>\u5bb6\u949f\u70b9\u623f</p> <i class="icon-left"></i> </a> </li> <li class="city8"> <a> <h2>\u5e7f\u5dde</h2> <p>\u5171\u6709<span>370</span>\u5bb6\u949f\u70b9\u623f</p> <i class="icon-left"></i> </a> </li> <li class="city9"> <a> <h2>\u6df1\u5733</h2> <p>\u5171\u6709<span>429</span>\u5bb6\u949f\u70b9\u623f</p> <i class="icon-left"></i> </a> </li> <li class="city10"> <a> <h2>\u6b66\u6c49</h2> <p>\u5171\u6709<span>750</span>\u5bb6\u949f\u70b9\u623f</p> <i class="icon-left"></i> </a> </li> </ul> </div> <footer>\xa92009-2015 \u827a\u9f99\u65e0\u7ebf</footer> </div> </div>')}();
+!function () {
+
+    function template (filename, content) {
+        return (
+            /string|function/.test(typeof content)
+            ? compile : renderFile
+        )(filename, content);
+    };
+
+
+    var cache = template.cache = {};
+    var String = this.String;
+
+    function toString (value, type) {
+
+        if (typeof value !== 'string') {
+
+            type = typeof value;
+            if (type === 'number') {
+                value += '';
+            } else if (type === 'function') {
+                value = toString(value.call(value));
+            } else {
+                value = '';
+            }
+        }
+
+        return value;
+
+    };
+
+
+    var escapeMap = {
+        "<": "&#60;",
+        ">": "&#62;",
+        '"': "&#34;",
+        "'": "&#39;",
+        "&": "&#38;"
+    };
+
+
+    function escapeFn (s) {
+        return escapeMap[s];
+    }
+
+
+    function escapeHTML (content) {
+        return toString(content)
+        .replace(/&(?![\w#]+;)|[<>"']/g, escapeFn);
+    };
+
+
+    var isArray = Array.isArray || function(obj) {
+        return ({}).toString.call(obj) === '[object Array]';
+    };
+
+
+    function each (data, callback) {
+        if (isArray(data)) {
+            for (var i = 0, len = data.length; i < len; i++) {
+                callback.call(data, data[i], i, data);
+            }
+        } else {
+            for (i in data) {
+                callback.call(data, data[i], i);
+            }
+        }
+    };
+
+
+    function resolve (from, to) {
+        var DOUBLE_DOT_RE = /(\/)[^/]+\1\.\.\1/;
+        var dirname = ('./' + from).replace(/[^/]+$/, "");
+        var filename = dirname + to;
+        filename = filename.replace(/\/\.\//g, "/");
+        while (filename.match(DOUBLE_DOT_RE)) {
+            filename = filename.replace(DOUBLE_DOT_RE, "/");
+        }
+        return filename;
+    };
+
+
+    var utils = template.utils = {
+
+        $helpers: {},
+
+        $include: function (filename, data, from) {
+            filename = resolve(from, filename);
+            return renderFile(filename, data);
+        },
+
+        $string: toString,
+
+        $escape: escapeHTML,
+
+        $each: each
+        
+    };
+
+
+    var helpers = template.helpers = utils.$helpers;
+
+
+    function renderFile (filename, data) {
+        var fn = template.get(filename) || showDebugInfo({
+            filename: filename,
+            name: 'Render Error',
+            message: 'Template not found'
+        });
+        return data ? fn(data) : fn; 
+    };
+
+
+    function compile (filename, fn) {
+
+        if (typeof fn === 'string') {
+            var string = fn;
+            fn = function () {
+                return new String(string);
+            };
+        }
+
+        var render = cache[filename] = function (data) {
+            try {
+                return new fn(data, filename) + '';
+            } catch (e) {
+                return showDebugInfo(e)();
+            }
+        };
+
+        render.prototype = fn.prototype = utils;
+        render.toString = function () {
+            return fn + '';
+        };
+
+        return render;
+    };
+
+
+    function showDebugInfo (e) {
+
+        var type = "{Template Error}";
+        var message = e.stack || '';
+
+        if (message) {
+            // 利用报错堆栈信息
+            message = message.split('\n').slice(0,2).join('\n');
+        } else {
+            // 调试版本，直接给出模板语句行
+            for (var name in e) {
+                message += "<" + name + ">\n" + e[name] + "\n\n";
+            }  
+        }
+
+        return function () {
+            if (typeof console === "object") {
+                console.error(type + "\n\n" + message);
+            }
+            return type;
+        };
+    };
+
+
+    template.get = function (filename) {
+        return cache[filename.replace(/^\.\//, '')];
+    };
+
+
+    template.helper = function (name, helper) {
+        helpers[name] = helper;
+    };
+
+
+    if (typeof define === 'function') {define(function() {return template;});} else if (typeof exports !== 'undefined') {module.exports = template;} else {this.template = template;}
+    
+    
+
+}()

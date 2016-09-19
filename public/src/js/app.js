@@ -75,7 +75,7 @@
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _functionsInit = __webpack_require__(73);
+	var _functionsInit = __webpack_require__(75);
 
 	var _functionsInit2 = _interopRequireDefault(_functionsInit);
 
@@ -92,7 +92,7 @@
 	_routeConfig.configRouter(router);
 
 	// boostrap the app
-	var App = _vue2['default'].extend(__webpack_require__(74));
+	var App = _vue2['default'].extend(__webpack_require__(76));
 	router.start(App, '#app');
 
 	// just for debugging
@@ -14278,9 +14278,6 @@
 	exports.__esModule = true;
 	exports['default'] = elong;
 	var defaultElong = {
-	  city: {
-	    name: '北京'
-	  },
 	  hotels: {
 	    list: [],
 	    index: 0,
@@ -14288,22 +14285,13 @@
 	    params: {},
 	    loading: false,
 	    hasMore: true
-	  },
-	  detail: {},
-	  hotelId: undefined,
-	  hotelDetail: {}
+	  }
 	};
 
 	function elong(elong, action) {
 	  if (elong === undefined) elong = defaultElong;
 
 	  switch (action.type) {
-	    case 'CHANGE_SEARCH':
-	      return _Object$assign({}, elong, {
-	        city: {
-	          name: action.text
-	        }
-	      });
 	    case 'REQUEST_POSTS':
 	      switch (action.name) {
 	        case 'HOTEL_LIST':
@@ -14353,42 +14341,6 @@
 	          return elong;
 	      }
 
-	    case 'CLEAR_HOTELS':
-	      return _Object$assign({}, elong, {
-	        hotels: {
-	          list: [],
-	          params: {},
-	          index: 0,
-	          msg: ''
-	        }
-	      });
-
-	    case 'EMPTY_HOTELS':
-	      var hotels = elong.hotels;
-	      hotels.list = [];
-	      return _Object$assign({}, elong, {
-	        hotels: hotels
-	      });
-	    case 'INIT':
-	      return _Object$assign({}, elong, {
-	        attrs: action.attrs
-	      });
-	    case 'HOTEL_PARAMS_UPDATE':
-	      var hotels = elong.hotels;
-	      var params = hotels.params;
-	      params[action.param] = action.val;
-	      hotels.params = params;
-	      return _Object$assign({}, elong, {
-	        hotels: hotels
-	      });
-	    case 'HOTELID_UPDATE':
-	      return _Object$assign({}, elong, {
-	        hotelId: action.hotelId
-	      });
-	    case 'HOTELDETAIL_UPDATE':
-	      return _Object$assign({}, elong, {
-	        hotelDetail: action.detail
-	      });
 	    default:
 	      return elong;
 	  }
@@ -14724,9 +14676,6 @@
 	var _interopRequireDefault = __webpack_require__(8)['default'];
 
 	exports.__esModule = true;
-	exports.changeSearch = changeSearch;
-	exports.clear_hotels = clear_hotels;
-	exports.empty_hotels = empty_hotels;
 	exports.ajax = ajax;
 	exports.loading_mask = loading_mask;
 	exports.loading_cover = loading_cover;
@@ -14735,32 +14684,12 @@
 	exports.plu_add = plu_add;
 	exports.plu_show = plu_show;
 	exports.plu_hide = plu_hide;
-	exports.hotel_params_update = hotel_params_update;
-	exports.detail_update = detail_update;
 
 	var _isomorphicFetch = __webpack_require__(55);
 
 	var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
 
-	var CHANGE_SEARCH = 'CHANGE_SEARCH';
-
-	var FETCH_API = {
-	  'HOTEL_LIST': {
-	    url: '/list',
-	    method: 'get'
-	  },
-	  'HOTEL_DETAIL': {
-	    url: '/detail',
-	    method: 'get'
-	  }
-	};
-
-	function changeSearch(text) {
-	  return {
-	    type: CHANGE_SEARCH,
-	    text: text
-	  };
-	}
+	var FETCH_API = {};
 
 	function requestPosts(action, method) {
 	  return {
@@ -14800,18 +14729,6 @@
 	    url: url,
 	    method: method,
 	    action: action
-	  };
-	}
-
-	function clear_hotels() {
-	  return {
-	    type: 'CLEAR_HOTELS'
-	  };
-	}
-
-	function empty_hotels() {
-	  return {
-	    type: 'EMPTY_HOTELS'
 	  };
 	}
 
@@ -14877,45 +14794,6 @@
 	  return {
 	    type: 'PLU_HIDE',
 	    name: name
-	  };
-	}
-
-	function hotel_params_update(val, type) {
-	  return {
-	    type: 'HOTEL_PARAMS_UPDATE',
-	    val: val,
-	    param: type
-	  };
-	}
-
-	function hotelId_update(hotelId) {
-	  return {
-	    type: 'HOTELID_UPDATE',
-	    hotelId: hotelId
-	  };
-	}
-
-	function hotelDetail_update(detail) {
-	  return {
-	    type: 'HOTELDETAIL_UPDATE',
-	    detail: detail
-	  };
-	}
-
-	function detail_update(hotelId) {
-	  var link = FETCH_API['HOTEL_DETAIL'];
-
-	  return function (dispatch) {
-	    dispatch(hotelId_update(hotelId));
-	    dispatch(loading_cover());
-	    return _isomorphicFetch2['default'](link.url, { method: link.method }).then(function (response) {
-	      return response.json();
-	    }).then(function (json) {
-	      dispatch(hotelDetail_update(json));
-	      dispatch(clear_mask());
-	    })['catch'](function (error) {
-	      // dispatch(clear_mask());
-	    });
 	  };
 	}
 
@@ -15520,7 +15398,7 @@
 
 	__webpack_require__(62)
 	module.exports = __webpack_require__(66)
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(72)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(73)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -15902,12 +15780,25 @@
 
 	var _componentsSectionSlideVue2 = _interopRequireDefault(_componentsSectionSlideVue);
 
+	var _consts = __webpack_require__(72);
+
+	var _consts2 = _interopRequireDefault(_consts);
+
 	exports['default'] = {
 	  components: {
 	    sectionslide: _componentsSectionSlideVue2['default']
 	  },
 	  methods: {},
 	  ready: function ready() {
+	    var scaleW = window.innerWidth / 320;
+	    var scaleH = window.innerHeight / 480;
+	    var resizes = document.querySelectorAll('.resize');
+	    for (var j = 0; j < resizes.length; j++) {
+	      resizes[j].style.width = parseInt(resizes[j].style.width) * scaleW + 'px';
+	      resizes[j].style.height = parseInt(resizes[j].style.height) * scaleH + 'px';
+	      resizes[j].style.top = parseInt(resizes[j].style.top) * scaleH + 'px';
+	      resizes[j].style.left = parseInt(resizes[j].style.left) * scaleW + 'px';
+	    };
 	    var mySwiper = new Swiper('.swiper-container', {
 	      direction: 'vertical',
 	      pagination: '.swiper-pagination',
@@ -15917,18 +15808,38 @@
 	        swiperAnimate(swiper);
 	      },
 	      onSlideChangeEnd: function onSlideChangeEnd(swiper) {
+	        console.log('onSlideChangeEnd');
 	        swiperAnimate(swiper);
 	      },
 	      onTransitionEnd: function onTransitionEnd(swiper) {
+	        console.log('onTransitionEnd');
 	        swiperAnimate(swiper);
 	      },
 	      watchSlidesProgress: true,
-	      onProgress: function onProgress(swiper) {},
-	      onSetTransition: function onSetTransition(swiper, speed) {}
+	      onProgress: function onProgress(swiper) {
+	        for (var i = 0; i < swiper.slides.length; i++) {
+	          var slide = swiper.slides[i];
+	          var progress = slide.progress;
+	          var translate = progress * swiper.height / 4;
+	          var scale = 1 - Math.min(Math.abs(progress * 0.5), 1);
+	          var opacity = 1 - Math.min(Math.abs(progress / 2), 0.5);
+	          slide.style.opacity = opacity;
+	          var es = slide.style;
+	          es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = 'translate3d(0,' + translate + 'px,-' + translate + 'px) scaleY(' + scale + ')';
+	        }
+	      },
+	      onSetTransition: function onSetTransition(swiper, speed) {
+	        for (var i = 0; i < swiper.slides.length; i++) {
+	          var es = swiper.slides[i].style;
+	          es.webkitTransitionDuration = es.MsTransitionDuration = es.msTransitionDuration = es.MozTransitionDuration = es.OTransitionDuration = es.transitionDuration = speed + 'ms';
+	        }
+	      }
 	    });
 	  },
 	  data: function data() {
-	    return {};
+	    return {
+	      slides: _consts2['default'].tecent
+	    };
 	  }
 	};
 	module.exports = exports['default'];
@@ -16004,7 +15915,7 @@
 	exports.__esModule = true;
 	exports['default'] = {
 	  props: {
-	    number: 'Number'
+	    slide: 'Object'
 	  },
 	  data: function data() {
 	    return {};
@@ -16023,16 +15934,250 @@
 /* 71 */
 /***/ function(module, exports) {
 
-	module.exports = "<section class=\"swiper-slide\">\n        <div class=\"container\">\n            slide{{ number }}\n        </div>\n    </section>";
+	module.exports = "<section class=\"swiper-slide\" :style=\"[slide.style]\">\n        <div class=\"container\">\n          <img v-bind:src=\"img.src\" :class=\"[img.class]\" :style=\"[img.style]\" :swiper-animate-effect=\"img.effect\" :swiper-animate-duration=\"img.duration\" :swiper-animate-delay=\"img.delay\"  v-for=\"img in slide.imgs\">\n        </div>\n    </section>";
 
 /***/ },
 /* 72 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"swiper-wrapper\">\n    <sectionslide :number=1></sectionslide>\n    <sectionslide :number=2></sectionslide>\n    <sectionslide :number=3 ></sectionslide>\n    <sectionslide :number=4></sectionslide>\n  </div>";
+	'use strict';
+
+	exports.__esModule = true;
+	var data = {
+	  tecent: [{
+	    style: {
+	      background: 'url(../../upload/bg.jpg)',
+	      backgroundRepeat: 'no-repeat',
+	      backgroundPosition: 'left top',
+	      backgroundSize: '100% 100%'
+	    },
+	    imgs: [{
+	      src: '../../upload/bonus_01.png',
+	      'class': 'ani resize',
+	      style: {
+	        width: '320px',
+	        height: '43px',
+	        left: '0px',
+	        top: '30px',
+	        zIndex: '3'
+	      },
+	      effect: 'zoomIn',
+	      duraction: '1.5s',
+	      delay: '0s'
+	    }, {
+	      src: '../../upload/bonus_02.jpg',
+	      'class': 'ani resize',
+	      style: {
+	        width: '320px',
+	        height: '27px',
+	        left: '0px',
+	        top: '75px',
+	        zIndex: '3'
+	      },
+	      effect: 'fadeIn',
+	      duraction: '0.5s',
+	      delay: '1.5s'
+	    }, {
+	      src: '../../upload/001.png',
+	      'class': 'ani resize',
+	      style: {
+	        width: '320px',
+	        height: '188px',
+	        left: '0px',
+	        top: '140px',
+	        zIndex: '1'
+	      },
+	      effect: 'rotateInDownLeft',
+	      duraction: '0.5s',
+	      delay: '2s'
+	    }, {
+	      src: '../../upload/002.png',
+	      'class': 'ani resize',
+	      style: {
+	        width: '320px',
+	        height: '188px',
+	        left: '0px',
+	        top: '140px',
+	        zIndex: '3'
+	      },
+	      effect: 'bounceInDown',
+	      duraction: '1.5s',
+	      delay: '2.5s'
+	    }, {
+	      src: '../../upload/003.png',
+	      'class': 'ani resize',
+	      style: {
+	        width: '320px',
+	        height: '112px',
+	        left: '0px',
+	        top: '320px',
+	        zIndex: '1'
+	      },
+	      effect: 'fadeInUp',
+	      duraction: '0.5s',
+	      delay: '4s'
+	    }]
+	  }, {
+	    style: {
+	      background: 'url(../../upload/bg.jpg)',
+	      backgroundRepeat: 'no-repeat',
+	      backgroundPosition: 'left top',
+	      backgroundSize: '100% 100%'
+	    },
+	    imgs: [{
+	      src: '../../upload/004.png',
+	      'class': 'ani resize',
+	      style: {
+	        width: '320px',
+	        height: '64px',
+	        left: '0px',
+	        top: '10px',
+	        zIndex: '5'
+	      },
+	      effect: 'bounce',
+	      duraction: '0.5s',
+	      delay: '0s'
+	    }, {
+	      src: '../../upload/005.png',
+	      'class': 'ani resize',
+	      style: {
+	        width: '320px',
+	        height: '42px',
+	        left: '0px',
+	        top: '100px',
+	        zIndex: '4'
+	      },
+	      effect: 'fadeIn',
+	      duraction: '0.5s',
+	      delay: '0.5s'
+	    }, {
+	      src: '../../upload/006.png',
+	      'class': 'ani resize',
+	      style: {
+	        width: '320px',
+	        height: '264px',
+	        left: '0px',
+	        top: '160px',
+	        zIndex: '3'
+	      },
+	      effect: 'zoomInDown',
+	      duraction: '0.5s',
+	      delay: '1s'
+	    }]
+	  }, {
+	    style: {
+	      background: 'url(../../upload/bg.jpg)',
+	      backgroundRepeat: 'no-repeat',
+	      backgroundPosition: 'left top',
+	      backgroundSize: '100% 100%'
+	    },
+	    imgs: [{
+	      src: '../../upload/007.png',
+	      'class': 'ani resize',
+	      style: {
+	        width: '320px',
+	        height: '66px',
+	        left: '0px',
+	        top: '30px',
+	        zIndex: '5'
+	      },
+	      effect: 'bounce',
+	      duraction: '0.5s',
+	      delay: '0s'
+	    }, {
+	      src: '../../upload/008.png',
+	      'class': 'ani resize',
+	      style: {
+	        width: '320px',
+	        height: '192px',
+	        left: '0px',
+	        top: '220px',
+	        zIndex: '4'
+	      },
+	      effect: 'bounceInLeft',
+	      duraction: '0.5s',
+	      delay: '1s'
+	    }, {
+	      src: '../../upload/009.png',
+	      'class': 'ani resize',
+	      style: {
+	        width: '320px',
+	        height: '77px',
+	        left: '0px',
+	        top: '110px',
+	        zIndex: '3'
+	      },
+	      effect: 'zoomIn',
+	      duraction: '0.5s',
+	      delay: '0.5s'
+	    }, {
+	      src: '../../upload/010.png',
+	      'class': 'ani resize',
+	      style: {
+	        width: '320px',
+	        height: '192px',
+	        left: '0px',
+	        top: '220px',
+	        zIndex: '2'
+	      },
+	      effect: 'bounceInRight',
+	      duraction: '0.5s',
+	      delay: '1.5s'
+	    }]
+	  }, {
+	    style: {
+	      background: 'url(../../upload/bg.jpg)',
+	      backgroundRepeat: 'no-repeat',
+	      backgroundPosition: 'left top',
+	      backgroundSize: '100% 100%'
+	    },
+	    imgs: [{
+	      src: '../../upload/001.jpg',
+	      'class': 'ani resize',
+	      style: {
+	        width: '320px',
+	        height: '46px',
+	        left: '0px',
+	        top: '20px',
+	        zIndex: '2'
+	      },
+	      effect: 'fadeInDown',
+	      duraction: '0.5s',
+	      delay: '0s'
+	    }, {
+	      src: '../../upload/002.jpg',
+	      'class': 'ani resize',
+	      style: {
+	        width: '320px',
+	        height: '327px',
+	        left: '0px',
+	        top: '100px',
+	        zIndex: '1'
+	      },
+	      effect: 'zoomInLeft',
+	      duraction: '0.5s',
+	      delay: '0.5s'
+	    }]
+	  }]
+	};
+
+	exports['default'] = data;
+	module.exports = exports['default'];
 
 /***/ },
 /* 73 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<div class=\"swiper-wrapper\">\n    <sectionslide v-for=\"slide in slides\" :slide=\"slide\"></sectionslide>\n    <img src=\"" + __webpack_require__(74) + "\" style=\"width:20px;height:15px; top:460px; left:150px;\" id=\"array\" class=\"resize\"> \n  </div>";
+
+/***/ },
+/* 74 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAAAyCAYAAAADQbYqAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozMDU0MzdFRjA0MDkxMUU0QUE3MDg3MDA2MTdCQTQ5OSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozMDU0MzdGMDA0MDkxMUU0QUE3MDg3MDA2MTdCQTQ5OSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjMwNTQzN0VEMDQwOTExRTRBQTcwODcwMDYxN0JBNDk5IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjMwNTQzN0VFMDQwOTExRTRBQTcwODcwMDYxN0JBNDk5Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+5t6gMQAABNBJREFUeNrcmf1rVXUcx91pTu0B29zctJml/RBp1HKID3NM93jvXHNMsRCR9SASIRWE/QsJokTEhChC/NEfBHXzaWratBnlNKqVqWGBSg+zcnPL7fb+wucLZx8/59zvebj33Hs/8ILtu/u533Ne5/N9OstLJBKTIooisBjkg3HQCwajuJC8iCQUgziYamsbBgfAX+m+GCsiAc1MgIppYDUozHUJWsAUh79HIiKdEkroBrmAa4KIFpozckpCCVVAAWs/A46APtY+lYTNyBUJM10EfEc/XwBfCiKa0yHCSoOAuCDgtE2Ajn5wLgoRqZRQ6iDgc/C9Q85FFxHF2bZPUAJiTECCBAwY5D8LlrK2EXAQ/J4NlVAWUICKS+Asa5uSqoqwMlCAXUSvIGJ12CKsFAiYzASc8iFAx7fgC9ZWQCJKMm1OKKNJMJ8JOAl+CuH7nwFVrG0UHAK3MqESZjkIOBGSgEm0nJ4RKiJOy3CkEmbTEJAEXA55vnETURqVBCWgKYCAhXR0Vp/vBk8bijgtiIgFEeF3TngMNAoCesDPBvkV4CjbCd4Eq4SdpBRKWLUwRyiZN9JRCZIA9WbouKGAF8AxYStcSlWxwOA7fqBlV6qIslRLKHcQoCrgikH+IhJQ5HLWOEFDxUTEKapAHZP9iLA8CmgIIKCSBBSyIbRfOHb30NY5WQxQRXARcS8iTCXMcRkCpgLUHPAoE/AGWAPeE0So737OUASviHwSMSssCXOoAh5gAtRTvWqQv5g+KwnopN/fB9sEESrveYM+fnQQEaNVLJAENwHXDC5uCb05ms4EbLEJ0LEdvMvaiqmvCkMRJwURTclEuC2Rj5MAy6eAZbSt5QI2g49d8t4BO1jbH6AefGPQ71Ngpbo3W9s9cBj85kXCXOqUC1Dj+hefAlT+6+ATg/y3wE7W9idd09dhi7A8CDhiKGA56AogQMUu8DYr7SKqwkUG+ZdpqeVDo5FWOddKeALUCQKUwesGnVdRBTxiaxsjAZ/62JhtJSH2JzpID+krg/z5tAvlFaEe6K+SBEnAGCWYCFhBAh5m+a+CzwKcUd4EH7AbuU0izhvkzyMRjvelJTwJagMKUEPgIZbfAfaEcIJUy+mHggg1cfcFFaEkSKvAfSXjEtVUAVzAJrA3xKO0kwi1BJ4LIKLbogONXwE1DhUQtgAVH5EI+yQ2nU6Oywzyr9AudNzWpvY/lRZ7PeVFgLKqXoE/yARsTIEAHZ200eIiumhVShZXaYUZn7AHwXCwwBIQB2VqjjCgFtxJTIx7YL1hflBeA+Os/9tguWF+OWgDK0C+nwuoEwT8B9alSYCbiL9Bldfv8tpxQ4YI0LwCxtj1/ENPOCUSGsEQ63AUrI1IgKaDhqI9/gXVYUtoAsOsoxHQHrEAzSZBxB1TEUEEtGWIgGQiaoJKiIG7goA1GSZAs9FBxCq/EprphrmA1gwVoNngIKLOq4QWBwEtGS5A87KDiHpTCS86CGjOEgHJRDQkk9DqICCWZQI06wURQ7TcixLaBAF3s1iAZh1t6OwxTKveBAntgoAJH8xy1tLGTnzAehUYTVYyOSyiVv3xrMnkkSNIFd9rsddTQ6CN3inkYuwDL9G/8XX0KzsFYAc47PX0lcWood4HdoNp/wswAEEu53Sik1PDAAAAAElFTkSuQmCCLyogIHx4R3YwMHxjM2ZiMjgzZWZhNDhjZjlhMzAzMjk0NzJmOTUxMmU4YSAqLw=="
+
+/***/ },
+/* 75 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -16066,12 +16211,12 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 74 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(75)
-	module.exports = __webpack_require__(77)
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(88)
+	__webpack_require__(77)
+	module.exports = __webpack_require__(79)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(90)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -16088,13 +16233,13 @@
 	}
 
 /***/ },
-/* 75 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(76);
+	var content = __webpack_require__(78);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(65)(content, {});
@@ -16114,7 +16259,7 @@
 	}
 
 /***/ },
-/* 76 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(64)();
@@ -16128,7 +16273,7 @@
 
 
 /***/ },
-/* 77 */
+/* 79 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16137,11 +16282,11 @@
 
 	exports.__esModule = true;
 
-	var _pluginMasklayVue = __webpack_require__(78);
+	var _pluginMasklayVue = __webpack_require__(80);
 
 	var _pluginMasklayVue2 = _interopRequireDefault(_pluginMasklayVue);
 
-	var _structorTransitionerVue = __webpack_require__(83);
+	var _structorTransitionerVue = __webpack_require__(85);
 
 	var _structorTransitionerVue2 = _interopRequireDefault(_structorTransitionerVue);
 
@@ -16160,12 +16305,12 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 78 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(79)
-	module.exports = __webpack_require__(81)
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(82)
+	__webpack_require__(81)
+	module.exports = __webpack_require__(83)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(84)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -16182,13 +16327,13 @@
 	}
 
 /***/ },
-/* 79 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(80);
+	var content = __webpack_require__(82);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(65)(content, {});
@@ -16208,7 +16353,7 @@
 	}
 
 /***/ },
-/* 80 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(64)();
@@ -16222,7 +16367,7 @@
 
 
 /***/ },
-/* 81 */
+/* 83 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -16239,18 +16384,18 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 82 */
+/* 84 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"markers\">\n      <div v-if=\"layer.mask\" class=\"preloader-indicator-overlay\"></div>\n      <div v-if=\"layer.loading\" class=\"preloader-indicator-modal\"></div>\n      <div v-if=\"layer.cover\" class=\"preloader-indicator-cover\"></div>\n  </div>";
 
 /***/ },
-/* 83 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(84)
-	module.exports = __webpack_require__(86)
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(87)
+	__webpack_require__(86)
+	module.exports = __webpack_require__(88)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(89)
 	if (false) {
 	(function () {
 	var hotAPI = require("vue-hot-reload-api")
@@ -16267,13 +16412,13 @@
 	}
 
 /***/ },
-/* 84 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(85);
+	var content = __webpack_require__(87);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(65)(content, {});
@@ -16293,7 +16438,7 @@
 	}
 
 /***/ },
-/* 85 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(64)();
@@ -16307,7 +16452,7 @@
 
 
 /***/ },
-/* 86 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16331,13 +16476,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 87 */
+/* 89 */
 /***/ function(module, exports) {
 
 	module.exports = "<div></div>";
 
 /***/ },
-/* 88 */
+/* 90 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"pages\">\n    <router-view class=\"view\" transition=\"test\" transition-mode=\"out-in\" keep-alive></router-view>\n    <masklay></masklay>\n    <div id=\"transitioner\"></div>\n  </div>";
