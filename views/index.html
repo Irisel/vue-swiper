@@ -22,6 +22,12 @@
 </head>
 <body>
     <div id="app" class="swiper-container"></div>
+    {{ each data as item}}
+        <p>{{ item }}</p>
+    {{ /each }}
+    {{ each data2 as item2}}
+        <p>{{ item2 }}</p>
+    {{ /each }}
 </body>
 <script src="/src/dist/js/app.min.js"></script>
 </html>

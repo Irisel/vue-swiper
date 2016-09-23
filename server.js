@@ -22,7 +22,13 @@ var index = require("./routes/index");
 
 app.get('/app*', function (req, res) {
     index.getApp(function(data){
-        res.render('index', {data: data});
+        res.render('index', {data: data, data2: ['a', 'b']});
+    })
+});
+
+app.get('/dashboard', function (req, res) {
+    index.getApp(function(data){
+        res.render('dashboard', {});
     })
 });
 

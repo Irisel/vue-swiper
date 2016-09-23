@@ -1,0 +1,155 @@
+.layout-page .navbar-inner{
+    padding-left:0px;
+    height:80px;
+    min-height:40px;
+    background: #428FEC;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #428FEC), color-stop(1, #428FEC));
+    background: -ms-linear-gradient(bottom, #428FEC, #428FEC);
+    background: -moz-linear-gradient(center bottom, #428FEC 0%, #428FEC 100%);
+    background: -o-linear-gradient(bottom, #428FEC, #428FEC);
+    border:none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    position: absolute;
+    width: 100%;
+    z-index: 10001;
+    box-sizing: border-box;
+}
+
+.layout-page .brand .first{
+    color: #ffffff;
+    font-style: normal;
+    padding-left:20px;
+}
+
+.layout-page .navbar .brand{
+    line-height: 40px;
+    font-size: 40px;
+    width: 400px;
+    padding: 10px 0px 30px;
+    background-color: #3981D7;
+}
+
+.layout-page .navbar{
+    margin:0px;
+}
+
+.layout-page .control-panel{
+    height: 66px;
+    padding-top: 80px;
+    position: relative;
+}
+
+.layout-page .control-panel .search{
+    width: 400px;
+    background-color: #ffffff;
+    height: inherit;
+    position: absolute;
+}
+
+.layout-page .control-panel .date-pickers{
+    width:100%;
+    padding-left:400px;
+    float:left;
+    height:100%;
+    box-sizing: border-box;
+}
+
+.layout-page .container-fluid .row-fluid{
+    margin-left: -20px;
+}
+
+@media (min-width: 1200px) {
+  .layout-page .container-fluid .row-fluid.layout-content .watchdog{
+    width:400px;
+    position:absolute;
+    border-top: 1px solid #ececec;
+    background-color: #ffffff;
+    height: 100%;
+  }
+  .layout-page .container-fluid .row-fluid.layout-content .show-charts{
+    width:100%;
+    padding-left:400px;
+    margin-left:0px;
+  }
+  .layout-page .container-fluid .row-fluid.layout-content .watchdog .accordion{
+    margin-bottom:0px;
+  }
+  .layout-page .container-fluid .row-fluid.layout-content .watchdog .accordion-group{
+    border:none;
+  }
+  .layout-page .container-fluid .row-fluid.layout-content .watchdog .accordion-group .nav-header{
+    background: none;
+    border: none;
+    background-color: #ffffff;
+    height:80px;
+    position:relative;
+    line-height:80px;
+    color: #4499ff;
+    font-size: 24px;
+    font-weight: normal;
+    padding-left: 20px;
+  }
+  .layout-page .container-fluid .row-fluid.layout-content .watchdog .sidebar-nav .nav-list{
+    border:none;
+    background-color: #f9f9f9;
+    padding-left: 32px;
+    padding-right:0;
+  }
+  .layout-page .container-fluid .row-fluid.layout-content .watchdog .accordion-group .nav-header > i{
+    margin-right:20px;
+  }
+  .layout-page .container-fluid .row-fluid.layout-content .watchdog .accordion-group .shadow-float:after{
+    width: 399px;
+    height: 4px;
+    left: 1px;
+    bottom: -4px;
+  }
+  .layout-page .container-fluid .row-fluid.layout-content .watchdog .accordion-group .accordion-body .nav-list > li{
+    border:none;
+    border-left:1px solid #ececec;
+    border-bottom: 2px solid #ececec;
+    position: relative;
+  }
+  .layout-page .container-fluid .row-fluid.layout-content .watchdog .accordion-group .accordion-body .nav-list > li:before{
+    content:'';
+    display:block;
+    position:absolute;
+    height:14px;
+    width:14px;
+    border-radius:7px;
+    background-color: #DDDDDD;
+    left:-7px;
+    top:23px;
+  }
+  .layout-page .container-fluid .row-fluid.layout-content .watchdog .accordion-group .accordion-body .nav-list > li > a{
+    border:none;
+    height: 60px;
+    line-height: 47px;
+    padding: 6.5px 0 6.5px 39px;
+    box-sizing: border-box;
+    margin-left: 0;
+    width: 100%;
+  }
+  .layout-page .container-fluid .row-fluid.layout-content .watchdog .accordion-group .accordion-body .nav-list > li > a:hover{
+    padding: 6.5px 0 6.5px 39px;
+  }
+  .layout-page .container-fluid .row-fluid.layout-content .watchdog .accordion-group .accordion-body .nav-list > li:last-child{
+    border:none;
+    border-left:1px solid #ececec;
+  }
+  .shadow-float:after{
+    display: block;
+    content: '';
+    position: absolute;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(1, #000000));
+    background: -ms-linear-gradient(bottom, #ffffff, #000000);
+    background: -moz-linear-gradient(center bottom, #ffffff 0%, #000000 100%);
+    background: -o-linear-gradient(bottom, #ffffff, #000000);
+    z-index: 10001;
+    -moz-opacity:0.2;
+    opacity: 0.2;
+  }
+  .layout-page .container-fluid .row-fluid.layout-content .watchdog .accordion-group .accordion-body{
+    border-bottom: 1px solid #ececec;
+  }
+}
